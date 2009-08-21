@@ -106,9 +106,9 @@ map <S-Insert> <MiddleMouse>
 nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 
 " F2 - быстрое сохранение
-nmap <F2> :w <cr>
-vmap <F2> :w <cr>i
-imap <F2> :w <cr>i
+nmap <F2> <esc>:w <cr>
+vmap <F2> <esc>:w <cr>i
+imap <F2> <esc>:w <cr>i
 
 " F3 - просмотр ошибок
 nmap <F3> :copen<cr>
