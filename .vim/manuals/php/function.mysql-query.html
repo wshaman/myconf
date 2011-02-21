@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Посылает запрос MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-ping.html">mysql_ping</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-real-escape-string.html">mysql_real_escape_string</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-query" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">mysql_query</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_query</span> &mdash; <span class="dc-title">Посылает запрос MySQL</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">resource</span> <span class="methodname"><b>mysql_query</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$query</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$link_identifier</tt></span>
+     ] )</div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><b>mysql_query()</b></span> посылает запрос активной базе данных
+     сервера, на который ссылается переданный указатель. Если параметр
+     <i><tt class="parameter">link_identifier</tt></i> опущен, используется последнее
+     открытое соединение. Если открытые соединения отсутствуют, функция
+     пытается соединиться с СУБД, аналогично функции <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span>
+     без параметров. Результат запроса буфферизируется.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      Строка запроса НЕ должна заканчиваться точкой с запятой.
+     </p>
+    </p></blockquote>
+    <p class="para">
+     Только для запросов SELECT, SHOW, EXPLAIN, DESCRIBE,
+     <span class="function"><b>mysql_query()</b></span> возвращает указатель на результат
+     запроса, или <b><tt>FALSE</tt></b> если запрос не был выполнен. В остальных случаях, 
+     <span class="function"><b>mysql_query()</b></span> возвращает <b><tt>TRUE</tt></b> в случае успешного
+     запроса и <b><tt>FALSE</tt></b> в случае ошибки. Значение не равное <b><tt>FALSE</tt></b> говорит о
+     том, что запрос был выполнен успешно. Он не говорит о количестве
+     затронутых или возвращённых рядов. Вполне возможна ситуация, когда
+     успешный запрос не затронет ни одного ряда.
+    </p>
+    <p class="para">
+     Следующий запрос составлен неправильно и 
+     <span class="function"><b>mysql_query()</b></span> вернёт <b><tt>FALSE</tt></b>:
+     <div class="example">
+      <p><b>Пример #1 Пример использования <span class="function"><b>mysql_query()</b></span></b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+&lt;php<br />$result&nbsp;=&nbsp;mysql_query("SELECT&nbsp;*&nbsp;WHERE&nbsp;1=1")<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die("Invalid&nbsp;query:&nbsp;"&nbsp;.&nbsp;mysql_error());<br />?&gt;</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <p class="para">
+     Следующий запрос ошибочен, если колонки
+     <i>my_col</i> нет в таблице 
+     <i>my_tbl</i>, в таком случае <span class="function"><b>mysql_query()</b></span>
+     вернёт <b><tt>FALSE</tt></b>:
+     <div class="example">
+      <p><b>Пример #2 Пример использования <span class="function"><b>mysql_query()</b></span></b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;my_col&nbsp;FROM&nbsp;my_tbl"</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Invalid&nbsp;query:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <p class="para">
+     <span class="function"><b>mysql_query()</b></span> также считается ошибочным и вернёт
+     <b><tt>FALSE</tt></b>, если у вас не хватает прав на работу с указанной в запросе
+     таблицей.
+    </p>
+    <p class="para">
+     Работая с результатами запросов, вы можете использовать функцию
+     <span class="function"><a href="function.mysql-num-rows.html" class="function">mysql_num_rows()</a></span>, чтобы найти число, возвращённых
+     запросом SELECT, рядов, или
+     <span class="function"><a href="function.mysql-affected-rows.html" class="function">mysql_affected_rows()</a></span>, чтобы найти число рядов,
+     обработанных запросами  DELETE, INSERT, REPLACE, или UPDATE.
+    </p>
+    <p class="para">
+     Только для запросов SELECT, SHOW, DESCRIBE, EXPLAIN, функция
+     <span class="function"><b>mysql_query()</b></span> возвращает указатель на
+     результат, который можно использовать в функции
+     <span class="function"><a href="function.mysql-fetch-array.html" class="function">mysql_fetch_array()</a></span> и других функциях, работающих с
+     результатами запросов. Когда работа с результатом окончена, вы можете
+     освободить ресурсы, используемые для его хранения, с помощью функции
+     <span class="function"><a href="function.mysql-free-result.html" class="function">mysql_free_result()</a></span>, хотя память в любом случае будет
+     очищена в конце исполнения скрипта.
+    </p>
+    <p class="para">
+     См. также  
+     <span class="function"><a href="function.mysql-num-rows.html" class="function">mysql_num_rows()</a></span>,
+     <span class="function"><a href="function.mysql-affected-rows.html" class="function">mysql_affected_rows()</a></span>,
+     <span class="function"><a href="function.mysql-unbuffered-query.html" class="function">mysql_unbuffered_query()</a></span>,
+     <span class="function"><a href="function.mysql-free-result.html" class="function">mysql_free_result()</a></span>,
+     <span class="function"><a href="function.mysql-fetch-array.html" class="function">mysql_fetch_array()</a></span>,
+     <span class="function"><a href="function.mysql-fetch-row.html" class="function">mysql_fetch_row()</a></span>,
+     <span class="function"><a href="function.mysql-fetch-assoc.html" class="function">mysql_fetch_assoc()</a></span>,
+     <span class="function"><a href="function.mysql-result.html" class="function">mysql_result()</a></span>,
+     <span class="function"><a href="function.mysql-select-db.html" class="function">mysql_select_db()</a></span> и
+     <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-ping.html">mysql_ping</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-real-escape-string.html">mysql_real_escape_string</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

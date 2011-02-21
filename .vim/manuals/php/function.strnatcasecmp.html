@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Сравнение строк без учета регистра с использованием алгоритма 
+     &quot;естественного упорядочения&quot;</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strlen.html">strlen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strnatcmp.html">strnatcmp</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.strnatcasecmp" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">strnatcasecmp</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strnatcasecmp</span> &mdash; <span class="dc-title">
+     Сравнение строк без учета регистра с использованием алгоритма 
+     &quot;естественного упорядочения&quot;
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">int</span> <span class="methodname"><b>strnatcasecmp</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str1</tt></span>
+      , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str2</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Эта функция реализует алгоритм сравнения, упорядочивающий 
+     алфавитно-цифровые строки подобно тому, как это сделал бы
+     человек. Эта функция подобна <span class="function"><a href="function.strnatcmp.html" class="function">strnatcmp()</a></span>, за 
+     исключением того, что <span class="function"><b>strnatcasecmp()</b></span> не учитывает 
+     регистр символов. Для получения дополнительной информации см. <a href="http://sourcefrog.net/projects/natsort/" class="link external">&raquo; Natural Order String Comparison</a>
+    </p>
+    <p class="simpara">
+     Подобно другим функциям сравнения строк, 
+     <span class="function"><b>strnatcasecmp()</b></span> возвращает отрицательное число,
+     если <i><tt class="parameter">str1</tt></i> меньше, чем 
+     <i><tt class="parameter">str2</tt></i>; положительное число, если 
+     <i><tt class="parameter">str1</tt></i> больше, чем <i><tt class="parameter">str2</tt></i>, 
+     и 0 если строки равны.
+    </p>
+    <p class="simpara">
+     См. также описание функций
+     <span class="function"><a href="function.ereg.html" class="function">ereg()</a></span>,
+     <span class="function"><a href="function.strcasecmp.html" class="function">strcasecmp()</a></span>,
+     <span class="function"><a href="function.substr.html" class="function">substr()</a></span>,
+     <span class="function"><a href="function.stristr.html" class="function">stristr()</a></span>,
+     <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span>,
+     <span class="function"><a href="function.strncmp.html" class="function">strncmp()</a></span>,
+     <span class="function"><a href="function.strncasecmp.html" class="function">strncasecmp()</a></span>,
+     <span class="function"><a href="function.strnatcmp.html" class="function">strnatcmp()</a></span> и
+     <span class="function"><a href="function.strstr.html" class="function">strstr()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strlen.html">strlen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strnatcmp.html">strnatcmp</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

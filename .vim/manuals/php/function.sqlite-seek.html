@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Переходит к определенному номеру записи</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.sqlite-rewind.html">sqlite_rewind</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sqlite-single-query.html">sqlite_single_query</a></div>
+ <div class="up"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.sqlite-seek" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">sqlite_seek</h1>
+  <p class="verinfo">(PHP 5, PECL sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">sqlite_seek</span> &mdash; <span class="dc-title">Переходит к определенному номеру записи</span></p>
+
+ </div>
+ <div class="refsect1 unknown">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>sqlite_seek</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$result</tt></span>
+   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$rownum</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><b>sqlite_seek()</b></span> перемещает внутренний указатель результата
+   запроса на запись с порядковым номером, заданным аргументом
+   <i><tt class="parameter">rownum</tt></i>.  Нумерация записей начинается с нуля (0
+   соответствует первой записи). Возвращает <b><tt>FALSE</tt></b> если запись с указанным
+   номером отсутствует, иначе <b><tt>TRUE</tt></b>.
+  </p>
+
+  <blockquote><p><b class="note">Замечание</b>: <p class="para">Эта функция не может быть использована
+с идентификаторами результатов небуферизированных запросов.</p></p></blockquote>
+
+ </div>
+
+ <div class="refsect1 unknown">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <span class="function"><a href="function.sqlite-next.html" class="function">sqlite_next()</a></span>,
+   <span class="function"><a href="function.sqlite-current.html" class="function">sqlite_current()</a></span> и
+   <span class="function"><a href="function.sqlite-rewind.html" class="function">sqlite_rewind()</a></span>.
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.sqlite-rewind.html">sqlite_rewind</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sqlite-single-query.html">sqlite_single_query</a></div>
+ <div class="up"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

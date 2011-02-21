@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выполняет перенос строки на данное количество символов с 
+     использованием символа разрыва строки.</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.vsprintf.html">vsprintf</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.wordwrap" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">wordwrap</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">wordwrap</span> &mdash; <span class="dc-title">
+     Выполняет перенос строки на данное количество символов с 
+     использованием символа разрыва строки.
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">string</span> <span class="methodname"><b>wordwrap</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str</tt></span>
+      [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$width</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$break</tt></span>
+      [, <span class="methodparam"><span class="type">boolean</span> <tt class="parameter">$cut</tt></span>
+     ]]] )</div>
+
+    <p class="para rdfs-comment">
+
+     Возвращает строку <i><tt class="parameter">str</tt></i> с переносом в столбце с номером, 
+     заданном аргументом <i><tt class="parameter">width</tt></i>. Строка разбивется с 
+     помощью аргумента <i><tt class="parameter">break</tt></i>.
+    </p>
+    <p class="para">
+      Аргументы <i><tt class="parameter">width</tt></i> и 
+      <i><tt class="parameter">break</tt></i> необязательны и по умолчанию равны 75 и 
+      &#039;<i>\n</i>&#039; соответственно.
+    </p>
+    <p class="para">
+     Если аргумент <i><tt class="parameter">cut</tt></i> установлен в 1, разрыв 
+     делается точно в заданной колонке. Поэтому если исходная строка 
+     содержит слово длиннее, чем заданная длина, то в этом случае слово 
+     будет разорвано. (См. второй пример).
+    </p>
+     <blockquote><p><b class="note">Замечание</b>: 
+      <p class="para">
+       Необязательный аргумент <i><tt class="parameter">cut</tt></i> был добавлен в 
+       PHP 4.0.3
+      </p>
+     </p></blockquote>
+    <div class="example">
+     <p><b>Пример #1 Пример использования <span class="function"><b>wordwrap()</b></span></b></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     Этот пример выведет:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+The quick brown fox&lt;br /&gt;
+jumped over the lazy&lt;br /&gt;
+dog.
+</pre></div>
+     </div>
+    </div>
+    <div class="example">
+     <p><b>Пример #2 Пример использования <span class="function"><b>wordwrap()</b></span></b></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$text&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Очень&nbsp;длинное&nbsp;слоооооооооооооооово."</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newtext&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wordwrap</span><span style="color: #007700">(</span><span style="color: #0000BB">$text</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$newtext</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     Этот пример выведет:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Очень
+длинное
+слоооооо
+оооооооо
+оово.
+</pre></div>
+     </div>
+    </div>
+    <p class="para">
+     См. также описание функций
+     <span class="function"><a href="function.nl2br.html" class="function">nl2br()</a></span> и
+     <span class="function"><a href="function.chunk-split.html" class="function">chunk_split()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.vsprintf.html">vsprintf</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -7,7 +7,7 @@
 set dictionary=~/.vim/dic/php
 
 " Сделаем удобную навигацию по мануалу PHP
-set keywordprg=~/.vim/bin/php_doc 
+set keywordprg=~/.vim/bin/vim_php_doc 
 
 " Проверка синтаксиса PHP
 set makeprg=php\ -l\ %
@@ -29,7 +29,7 @@ let g:pdv_cfg_Uses = 1
 let php_folding = 0
 
 " Не использовать короткие теги PHP для поиска PHP блоков
-let php_noShortTags = 1
+let php_noShortTags = 0
 
 " Подстветка SQL внутри PHP строк
 let php_sql_query=1

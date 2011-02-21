@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выбирает базу данных MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-result.html">mysql_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-set-charset.html">mysql_set_charset</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-select-db" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">mysql_select_db</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_select_db</span> &mdash; <span class="dc-title">Выбирает базу данных MySQL</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>mysql_select_db</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$database_name</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$link_identifier</tt></span>
+     ] )</div>
+
+    <p class="para rdfs-comment">
+     Возвращает <b><tt>TRUE</tt></b> в случае успешного завершения или <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+    </p>
+    <p class="para">
+     <span class="function"><b>mysql_select_db()</b></span> выбирает для работы указанную базу
+     данных на сервере, на который ссылается переданный указатель. Если
+     параметр указателя опущен, используется последнее открытое соединение.
+     Если нет ни одного открытого соединения, функция попытается соединиться с
+     сервером аналогично функции <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span>, вызванной
+     без параметров.
+    </p>
+    <p class="para">
+     Каждый последующий вызов функции <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span> будет
+     работать с выбранной базой данных.
+    </p>
+    <p class="para">
+     <div class="example">
+      <p><b>Пример #1 Пример использования <span class="function"><b>mysql_select_db()</b></span></b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$lnk&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;die&nbsp;(</span><span style="color: #DD0000">'Not&nbsp;connected&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br /><br /></span><span style="color: #FF8000">//&nbsp;сделать&nbsp;foo&nbsp;текущей&nbsp;базой&nbsp;данных<br /></span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$lnk</span><span style="color: #007700">)&nbsp;or&nbsp;die&nbsp;(</span><span style="color: #DD0000">'Can\'t&nbsp;use&nbsp;foo&nbsp;:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <p class="para">
+     См. также 
+     <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span>,
+     <span class="function"><a href="function.mysql-pconnect.html" class="function">mysql_pconnect()</a></span> и
+     <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span>.
+    </p>
+    <p class="para">
+     Для совместимости, как алиас, доступна устаревшая функцмия 
+     <span class="function"><b>mysql_selectdb()</b></span>. Однако, использовать её крайне не
+     рекомендуется.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-result.html">mysql_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-set-charset.html">mysql_set_charset</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

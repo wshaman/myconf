@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Определяет, доступен ли файл для записи</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.is-uploaded-file.html">is_uploaded_file</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-writeable.html">is_writeable</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.is-writable" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">is_writable</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">is_writable</span> &mdash; <span class="dc-title">Определяет, доступен ли файл для записи</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>is_writable</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Возвращает <b><tt>TRUE</tt></b>, если файл <i><tt class="parameter">filename</tt></i> существует и
+     доступен для записи. Аргумент filename может быть именем директории, что
+     позволяет вам проверять директории на доступность для записи.
+    </p>
+    <p class="para">
+     Не забывайте, что PHP может обращаться к файлу от имени того пользователя,
+     от которого запущен веб-сервер (обычно &#039;nobody&#039;). Ограничения безопасного
+     режима не принимаются во внимание.
+    </p>
+
+    <blockquote><p><b class="note">Замечание</b>: <span class="simpara">Результаты этой функции
+кэшируются. Более подробную информацию смотрите в разделе
+<span class="function"><a href="function.clearstatcache.html" class="function">clearstatcache()</a></span>.</span></p></blockquote>
+    
+    <div class="tip"><b class="tip">Подсказка</b><p class="simpara">Начиная с
+PHP 5.0.0, эта функция также может быть
+использована с <em class="emphasis">некоторыми</em> обертками url.
+Список оберток, поддерживаемых семейством функций
+<span class="function"><a href="function.stat.html" class="function">stat()</a></span>, смотрите в <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>.</p></div>
+    
+    <p class="para">
+     См. также описание функций <span class="function"><a href="function.is-readable.html" class="function">is_readable()</a></span>,
+     <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span> и
+     <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.is-uploaded-file.html">is_uploaded_file</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-writeable.html">is_writeable</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

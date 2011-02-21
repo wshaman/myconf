@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Исключения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.faq.html">FAQ: things you need to know about namespaces</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.exceptions.extending.html">Наследование исключений</a></div>
+ <div class="up"><a href="langref.html">Справочник языка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.exceptions" class="chapter">
+  <h1>Исключения</h1>
+<h2>Содержание</h2><ul class="chunklist chunklist_chapter"><li><a href="language.exceptions.extending.html">Наследование исключений</a></li></ul>
+
+
+  <p class="para">
+   Модель исключений (exceptions) в PHP 5 проще, чем в других языках программирования
+   Исключение можно сгенерировать (как говорят, &quot;выбросить&quot;) при помощи оператора 
+   <i>throw</i>, и можно перехватить (или, как говорят, &quot;поймать&quot;)
+   оператором <i>catch</i>. Код выбрасывающий исключение, должен
+   быть окружен блоком <i>try</i>, для того чтобы можно было
+   перехватить исключение. Каждый блок <i>try</i>
+   должен иметь как минимум один соответствующий блок <i>catch</i>. 
+   Так же можно использовать несколько блоков <i>catch</i>,
+   перехватывающих различные классы исключений.
+   Нормальное выполнение (когда не генерируется исключений в блоках 
+   <i>try</i> или когда класс выброшенного исключения не
+   совпадает с классами, объявленными в соответствующих блоках
+   <i>catch</i>) будет продолжено за последним  блоком
+   <i>catch</i>. Исключения так же могут быть сгенерированны (или
+   перегерерированы - т.е. выброшены снова) оператором <i>throw</i> 
+   внутри блока <i>catch</i>.
+  </p>
+  <p class="para">
+   При генерации исключения, код следующий ниже оператора
+   <i>throw</i> исполнен не будет, а PHP предпримет попытку найти
+   первый блок <i>catch</i>, перехватывающий исключение данного
+   класса. Если исключение не будет перехвачено, PHP выдаст сообщение об
+   ошибке: &quot;<i>Uncaught Exception ...</i>&quot; (Неперехваченное
+   исключение), если конечно не был определен обработчик ошибок при помощи
+   функции <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span>.
+  </p>
+   <div class="example">
+    <p><b>Пример #12 Выброс исключений</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">inverse</span><span style="color: #007700">(</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">'Деление&nbsp;на&nbsp;ноль.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;return&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">/</span><span style="color: #0000BB">$x</span><span style="color: #007700">;<br />}<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">inverse</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">inverse</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Выброшено&nbsp;исключение:&nbsp;'</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Продолжение&nbsp;выполнения<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+0.2
+Выброшено исключение: Деление на ноль.
+Hello World
+</pre></div>
+    </div>
+   </div>
+
+  
+
+ </div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.faq.html">FAQ: things you need to know about namespaces</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.exceptions.extending.html">Наследование исключений</a></div>
+ <div class="up"><a href="langref.html">Справочник языка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

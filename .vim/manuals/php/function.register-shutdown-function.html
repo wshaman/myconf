@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Регистрирует функцию, которая выполняется по завершению работы скрипта</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-defined-functions.html">get_defined_functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.register-tick-function.html">register_tick_function</a></div>
+ <div class="up"><a href="ref.funchand.html">Управление функциями</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.register-shutdown-function" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">register_shutdown_function</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">register_shutdown_function</span> &mdash; <span class="dc-title">
+     Регистрирует функцию, которая выполняется по завершению работы скрипта
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>register_shutdown_function</b></span>
+       ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.callback" class="type callback">callback</a></span> <tt class="parameter">$function</tt></span>
+      )</div>
+
+    <p class="simpara">
+     Регистрирует функцию <i><tt class="parameter">function</tt></i>, которая
+     выполнится после завершения работы скрипта.
+    </p>
+    <p class="para">
+     Возможна регистрация нескольких подобных функций с помощью 
+     <span class="function"><b>register_shutdown_function()</b></span>, при этом функции будут
+     выполняться в том порядке, в каком они были зарегистрированы.
+     Если вы вызовете <span class="function"><a href="function.exit.html" class="function">exit()</a></span> в одной из зарегистрированных
+     <span class="function"><b>register_shutdown_function()</b></span> функций,
+     процесс будет остановлен окончательно и последующие зарегистрированные
+     с помощью <span class="function"><b>register_shutdown_function()</b></span> функции не
+     будут вызваны.
+    </p>
+    <p class="para">
+     Зарегистрированные <span class="function"><b>register_shutdown_function()</b></span> функции
+     будут вызваны после того, как запрос выполнен окончательно
+     (включая отсылку любых буферов вывода), соответственно вы не сможете
+     из этих функций вывести что-либо в броузер, используя <span class="function"><a href="function.echo.html" class="function">echo()</a></span> или
+     <span class="function"><a href="function.print.html" class="function">print()</a></span>, или возвратить содержимое какого-либо буфера
+     вывода, используя <span class="function"><a href="function.ob-get-contents.html" class="function">ob_get_contents()</a></span>.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      Обычно неопределённые функции вызывают фатальные ошибки в PHP, но когда
+      <i><tt class="parameter">function</tt></i>, вызванная при помощи
+      <span class="function"><b>register_shutdown_function()</b></span>, неопределена, уровень
+      ошибки изменяется на <b><tt>E_WARNING</tt></b>.  Также,
+      из-за внутренних причин, эта ошибка будет ссылаться на
+      <span class="function"><b>Unknown()</b></span> at line #0. 
+     </p>
+    </p></blockquote>
+    <p class="para">
+     См. также <a href="ini.core.html#ini.auto-append-file" class="link">auto_append_file</a>,
+     <span class="function"><a href="function.exit.html" class="function">exit()</a></span> и секцию
+     <a href="features.connection-handling.html" class="link">connection handling</a>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-defined-functions.html">get_defined_functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.register-tick-function.html">register_tick_function</a></div>
+ <div class="up"><a href="ref.funchand.html">Управление функциями</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

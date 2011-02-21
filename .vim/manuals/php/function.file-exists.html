@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Проверить наличие указанного файла или каталога</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.fgetss.html">fgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file-get-contents.html">file_get_contents</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.file-exists" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">file_exists</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">file_exists</span> &mdash; <span class="dc-title">Проверить наличие указанного файла или каталога</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>file_exists</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+      )</div>
+
+    <p class="simpara">
+     Возвращзает <b><tt>TRUE</tt></b>, если файл или каталог с именем, указанным в параметре
+     <i><tt class="parameter">filename</tt></i>, существует; возвращает <b><tt>FALSE</tt></b> в обратном случае.
+    </p>
+    <p class="para">
+     На платформах Windows, для проверки наличия файлов на сетевых ресурсах, используйте
+     имена, подобные <var class="filename">//computername/share/filename</var> или
+     <var class="filename">\\computername\share\filename</var>.
+    </p>
+    <p class="para">
+     <div class="example">
+      <p><b>Пример #1 Проверка существования файла</b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/path/to/foo.txt'</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;file&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #DD0000">&nbsp;exists"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;file&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #DD0000">&nbsp;does&nbsp;not&nbsp;exist"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+
+    <blockquote><p><b class="note">Замечание</b>: <span class="simpara">Результаты этой функции
+кэшируются. Более подробную информацию смотрите в разделе
+<span class="function"><a href="function.clearstatcache.html" class="function">clearstatcache()</a></span>.</span></p></blockquote>
+
+    <div class="tip"><b class="tip">Подсказка</b><p class="simpara">Начиная с
+PHP 5.0.0, эта функция также может быть
+использована с <em class="emphasis">некоторыми</em> обертками url.
+Список оберток, поддерживаемых семейством функций
+<span class="function"><a href="function.stat.html" class="function">stat()</a></span>, смотрите в <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>.</p></div>
+
+    <p class="para">
+     См.также описания функций  <span class="function"><a href="function.is-readable.html" class="function">is_readable()</a></span>, <span class="function"><a href="function.is-writable.html" class="function">is_writable()</a></span>,
+     <span class="function"><a href="function.is-file.html" class="function">is_file()</a></span> и <span class="function"><a href="function.file.html" class="function">file()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.fgetss.html">fgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file-get-contents.html">file_get_contents</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Уничтожает базу данных MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-db-query.html">mysql_db_query</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-errno.html">mysql_errno</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-drop-db" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">mysql_drop_db</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_drop_db</span> &mdash; <span class="dc-title">Уничтожает базу данных MySQL</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>mysql_drop_db</b></span>
+       ( <span class="methodparam"><span class="type"><span class="type строка">строка</span></span> <tt class="parameter">$database_name</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$link_identifier</tt></span>
+     ] )</div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><b>mysql_drop_db()</b></span> пытается уничтожить базу данных
+     на сервере, на который ссылается переданный указатель.
+    </p>
+    <p class="para">
+     Возвращает <b><tt>TRUE</tt></b> в случае успешного завершения или <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+    </p>
+    <p class="para">
+     Для совместимости, как алиас, доступна устаревшая функция <span class="function"><b>mysql_dropdb()</b></span>.
+     Однако, использовать её крайне не рекомендуется.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      Функция <span class="function"><b>mysql_drop_db()</b></span> не рекомендуется к
+      использованию. Использование <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span> и SQL-синтаксиса
+      <i>SQL DROP DATABASE</i> предпочтительнее.
+     </p>
+    </p></blockquote>
+    <div class="warning"><b class="warning">Внимание</b>
+     <p class="para">
+      Эта функция недоступна в библиотеке для MySQL версий 4.x.
+     </p>
+    </div>
+    <p class="para">
+     См. также 
+     <span class="function"><a href="function.mysql-create-db.html" class="function">mysql_create_db()</a></span> и
+     <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-db-query.html">mysql_db_query</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-errno.html">mysql_errno</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

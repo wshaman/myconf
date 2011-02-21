@@ -1,0 +1,541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oci8.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.oci8.html">Oracle/OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="oci8.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <dl>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_DEFAULT</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Режим выполнения выражения SQL. В этом режиме транзакция не завершается
+     автоматически оператором COMMIT.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_DESCRIBE_ONLY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Режим выполнения выражения SQL. Используйте этот режим, если вы
+     хотите получить данные о выполнении запроса, а не выполнить сам
+     запрос.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_COMMIT_ON_SUCCESS</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Режим выполнения выражения SQL. Транзакция автоматически завершается
+     вызовом оператора COMMIT после выполнения <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_EXACT_FETCH</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Режим получения результатов запроса. Используется в том случае,
+     если приложению известно заранее сколько строк будет получено
+     в результате. Oracle 8 и более поздние версии не используют выборку
+     результатов с упреждением в этом режиме, а курсоры уничтожаются 
+     автоматически после выборки ожидаемого количества строк, что
+     может уменьшить требования сервера к ресурсам.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_SYSDATE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_BFILE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки переменных типа BFILE.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_CFILEE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки переменных типа CFILE.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_CLOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки переменных типа CLOB.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_BLOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки переменных типа BLOB.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_ROWID</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки переменных типа ROWID.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_CURSOR</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки курсоров, созданных ранее с помощью <span class="function"><a href="function.oci-new-cursor.html" class="function">oci_new_cursor()</a></span>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_NTY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+     привязки именованных типов данных. В PHP &lt; 5.0 эта константа
+     называлась <b><tt>OCI_B_SQLT_NTY</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_B_BIN</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_BFILEE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_BFILE</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_CFILEE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_CFILEE</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_CLOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_CLOB</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_BLOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_BLOB</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_RDD</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_ROWID</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>SQLT_NTY</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_B_NTY</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_FETCHSTATEMENT_BY_COLUMN</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Режим <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> по умолчанию. 
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_FETCHSTATEMENT_BY_ROW</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Альтернативный режим <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_ASSOC</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется с <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+     <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения ассоциативного
+     массива.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_NUM</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется с <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+     <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения массива с числовыми
+     индексами.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_BOTH</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется с <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+     <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения массива с
+     ассоциативными и числовыми индексами.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_RETURN_NULLS</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется с <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения 
+     пустых элементов массива, если соответствующее поле в результате равно 
+     <b><tt>NULL</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_RETURN_LOBS</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Используется <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения
+     содержания объекта LOB вместо дескриптора.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_DTYPE_FILE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+     инициализации дескриптора типа FILE.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_DTYPE_LOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+     инициализации дескриптора типа LOB.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_DTYPE_ROWID</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+     инициализации дескриптора типа ROWID.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_D_FILE</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_DTYPE_FILE</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_D_LOB</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_DTYPE_LOB</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+  <dt>
+
+   <span class="term">
+    <b><tt>OCI_D_ROWID</tt></b> 
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </span>
+   <dd>
+
+    <span class="simpara">
+     То же, что и <b><tt>OCI_DTYPE_ROWID</tt></b>.
+    </span>
+   </dd>
+
+  </dt>
+
+ </dl>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oci8.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.oci8.html">Oracle/OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

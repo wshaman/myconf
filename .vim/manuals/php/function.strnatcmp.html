@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Сравнение строк с использованием алгоритма &quot;естественного 
+     упорядочения&quot;</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strnatcasecmp.html">strnatcasecmp</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strncasecmp.html">strncasecmp</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.strnatcmp" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">strnatcmp</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strnatcmp</span> &mdash; <span class="dc-title">
+     Сравнение строк с использованием алгоритма &quot;естественного 
+     упорядочения&quot;
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">int</span> <span class="methodname"><b>strnatcmp</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str1</tt></span>
+      , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str2</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Эта функция реализует алгоритм сравнения, упорядочивающий 
+     алфавитно-цифровые строки подобно тому, как это сделал бы
+     человек. Пример, показывающий отличие этого алгоритма от обыных 
+     функций сравнения, приведен ниже
+     <div class="informalexample">
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$arr1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$arr2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"img12.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img10.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img2.png"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"img1.png"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Стандартный&nbsp;алгоритм&nbsp;сравнения\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"strcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr1</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"\nАлгоритм&nbsp;\"естественного&nbsp;упорядочения\"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">usort</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"strnatcmp"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+     Этот пример выводит следующее:
+     <div class="informalexample">
+      <div class="example-contents screen">
+<div class="cdata"><pre>
+Стандартный алгоритм сравнения
+Array
+(
+    [0] =&gt; img1.png
+    [1] =&gt; img10.png
+    [2] =&gt; img12.png
+    [3] =&gt; img2.png
+)
+
+Алгоритм &quot;естественного упорядочения&quot;
+Array
+(
+    [0] =&gt; img1.png
+    [1] =&gt; img2.png
+    [2] =&gt; img10.png
+    [3] =&gt; img12.png
+)
+</pre></div>
+      </div>
+     </div>
+     Для получения дополнительной информации см. <a href="http://sourcefrog.net/projects/natsort/" class="link external">&raquo; Natural Order String Comparison</a>
+    </p>
+    <p class="simpara">
+     Подобно другим функциям сравнения строк, 
+     <span class="function"><b>strnatcmp()</b></span> возвращает отрицательное число,
+     если <i><tt class="parameter">str1</tt></i> меньше, чем 
+     <i><tt class="parameter">str2</tt></i>; положительное число если,
+     <i><tt class="parameter">str1</tt></i> больше, чем <i><tt class="parameter">str2</tt></i>, 
+     и 0 если строки равны.
+    </p>
+    <p class="simpara">
+     Эта функция учитывает регистр символов.
+    </p>
+    <p class="simpara">
+     См. также описание функций <span class="function"><a href="function.ereg.html" class="function">ereg()</a></span>,
+     <span class="function"><a href="function.strcasecmp.html" class="function">strcasecmp()</a></span>, <span class="function"><a href="function.substr.html" class="function">substr()</a></span>,
+     <span class="function"><a href="function.stristr.html" class="function">stristr()</a></span>, <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span>,
+     <span class="function"><a href="function.strncmp.html" class="function">strncmp()</a></span>, <span class="function"><a href="function.strncasecmp.html" class="function">strncasecmp()</a></span>,
+     <span class="function"><a href="function.strnatcasecmp.html" class="function">strnatcasecmp()</a></span>, <span class="function"><a href="function.strstr.html" class="function">strstr()</a></span>, 
+     <span class="function"><a href="function.natsort.html" class="function">natsort()</a></span> и <span class="function"><a href="function.natcasesort.html" class="function">natcasesort()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strnatcasecmp.html">strnatcasecmp</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strncasecmp.html">strncasecmp</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

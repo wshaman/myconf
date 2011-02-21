@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Распаковывает строку</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzgetss.html">gzgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzopen.html">gzopen</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.gzinflate" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gzinflate</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">gzinflate</span> &mdash; <span class="dc-title">Распаковывает строку</span></p>
+
+ </div>
+ <div class="refsect1 description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><b>gzinflate</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$data</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">   
+   Распаковывает сжатую строку.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">data</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Данные, сжатые функцией <span class="function"><a href="function.gzdeflate.html" class="function">gzdeflate()</a></span>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">length</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Максимальная длина данных для распаковки.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Распакованные данные или <b><tt>FALSE</tt></b> в случае ошибки.
+  </p>
+  <p class="para">
+   Функция сообщит об ошибке также в случае, когда распакованные данные 
+   длиннее в более, чем 32768 или <i><tt class="parameter">length</tt></i> раз, сжатых.
+  </p>
+ </div>
+
+ <div class="refsect1 seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.gzdeflate.html" class="function" rel="rdfs-seeAlso">gzdeflate()</a> - Сжимает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzcompress.html" class="function" rel="rdfs-seeAlso">gzcompress()</a> - Сжимает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzuncompress.html" class="function" rel="rdfs-seeAlso">gzuncompress()</a> - Распаковывает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzencode.html" class="function" rel="rdfs-seeAlso">gzencode()</a> - Сжимает строку в формате gzip</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzgetss.html">gzgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzopen.html">gzopen</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

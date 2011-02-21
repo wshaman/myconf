@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выполняет запрос к базе данных и возвращает результат в виде массива</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sqlite-busy-timeout.html">sqlite_busy_timeout</a></div>
+ <div class="up"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.sqlite-array-query" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">sqlite_array_query</h1>
+  <p class="verinfo">(PHP 5, PECL sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">sqlite_array_query</span> &mdash; <span class="dc-title">
+   Выполняет запрос к базе данных и возвращает результат в виде массива
+  </span></p>
+
+ </div>
+ <div class="refsect1 unknown">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><b>sqlite_array_query</b></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$dbhandle</tt></span>
+   , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$query</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$result_type</tt></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$decode_binary</tt></span>
+  ]] )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><b>sqlite_array_query</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$query</tt></span>
+   , <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$dbhandle</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$result_type</tt></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$decode_binary</tt></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Использование <span class="function"><b>sqlite_array_query()</b></span> идентично
+   использованию <span class="function"><a href="function.sqlite-query.html" class="function">sqlite_query()</a></span> с последующим вызовом
+   <span class="function"><a href="function.sqlite-fetch-array.html" class="function">sqlite_fetch_array()</a></span> для каждой записи результата
+   запроса с сохранением записей в массиве, как показано в приведенном ниже
+   примере. <span class="function"><b>sqlite_array_query()</b></span> выполняется значительно
+   быстрее, чем такой скрипт.
+  </p>
+  <div class="example">
+   <p><b>Пример #1 Самостоятельная реализация <span class="function"><b>sqlite_array_query()</b></span></b></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$q&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sqlite_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbhandle</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;from&nbsp;foo&nbsp;LIMIT&nbsp;100"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$rows&nbsp;</span><span style="color: #007700">=&nbsp;array();<br />while&nbsp;(</span><span style="color: #0000BB">$r&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sqlite_fetch_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$q</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rows</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">$r</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="tip"><b class="tip">Подсказка</b>
+   <p class="para">
+    <span class="function"><b>sqlite_array_query()</b></span> наилучшим образом подходит для
+    запросов, возвращающих до 45 записей. Для запросов, возвращающих большие
+    наборы записей, оптимальным с точки зрения быстродействия является
+    использование функции <span class="function"><a href="function.sqlite-unbuffered-query.html" class="function">sqlite_unbuffered_query()</a></span>.
+   </p>
+  </div>
+ </div>
+
+ <div class="refsect1 unknown">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <span class="function"><a href="function.sqlite-query.html" class="function">sqlite_query()</a></span>,
+   <span class="function"><a href="function.sqlite-fetch-array.html" class="function">sqlite_fetch_array()</a></span> и
+   <span class="function"><a href="function.sqlite-fetch-string.html" class="function">sqlite_fetch_string()</a></span>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sqlite-busy-timeout.html">sqlite_busy_timeout</a></div>
+ <div class="up"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

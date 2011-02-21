@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выполнить подзапрос Apache</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.getallheaders.html">getallheaders</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.iisfunc.html">IIS</a></div>
+ <div class="up"><a href="ref.apache.html">Функции для работы с сервером Apache</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.virtual" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">virtual</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">virtual</span> &mdash; <span class="dc-title">Выполнить подзапрос Apache</span></p>
+
+ </div>
+
+ <div class="refsect1 description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>virtual</b></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><b>virtual()</b></span> специфична для сервера Apache 
+   и является эквивалентом конструкции <i>&lt;!--#include virtual...--&gt;</i>,
+   используемой в mod_include.
+   Эта функция выполняет подзапрос Apache. Она бывает полезной
+   в тех случаях, когда вам нужно включить в свой скрипт результат
+   выполнения других CGI программ или скриптов, обработки сервером
+   Apache .shtml файлов или чего-либо иного, что должно быть обработано Apache. 
+   Имейте в виду, что CGI скрипты должны создавать корректные CGI заголовки. 
+   Как минимум, CGI скрипт должен создавать заголовок Content-type.
+  </p>
+  <p class="para">
+   Перед тем, как осуществится выполнение подзапроса, все буферы
+   сбрасываются и выдаются в броузер, также отсылаются заголовки,
+   помещенные в буфер.
+  </p>
+  <p class="simpara">Эта функция поддерживается только если PHP
+установлен в качестве модуля Apache.</p>
+ </div>
+
+ <div class="refsect1 parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">filename</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Имя файла, для которого будет выполнен подзапрос.
+      </p>
+     </dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Результат выполнения подзапроса в случае успеха, или <b><tt>FALSE</tt></b> при неудаче.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">4.0.6</td>
+       <td align="left">
+        Эту функцию стало возможным использовать для файлов PHP. Тем не менее, чаще всего 
+        для файлов PHP лучше использовать функции <span class="function"><a href="function.include.html" class="function">include()</a></span> или
+        <span class="function"><a href="function.require.html" class="function">require()</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes">
+  <h3 class="title">Примечания</h3>
+  <div class="warning"><b class="warning">Внимание</b>
+   <p class="para">
+    Строка запроса может быть передана вызываемому файлу, однако значение переменной
+    <var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var> будет скопирована из родительского скрипта. Лишь 
+    <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['QUERY_STRING']</a></var></var> будет содержать переданную 
+    строку запроса. Строка запроса может быть передана только при использовании Apache 2. 
+    Запрошенный файл не будет отражен в журнале доступа (access log) Apache.
+   </p>
+  </div>
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    Переменные окружения, установленные в запрошенном файле, не видимы из 
+    вызвавшего его скрипта.
+   </p>
+  </p></blockquote>
+  <blockquote><p><b class="note">Замечание</b>: <p class="para">Начиная с PHP 4.3.3 вы также
+можете использовать эти функции с <a href="ref.nsapi.html" class="link">модулем NSAPI</a>
+в серверах Netscape/iPlanet/SunONE.</p></p></blockquote>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.getallheaders.html">getallheaders</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.iisfunc.html">IIS</a></div>
+ <div class="up"><a href="ref.apache.html">Функции для работы с сервером Apache</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

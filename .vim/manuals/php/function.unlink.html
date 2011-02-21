@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Удаляет файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.umask.html">umask</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.inotify.html">Inotify</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.unlink" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">unlink</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">unlink</span> &mdash; <span class="dc-title">Удаляет файл</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>unlink</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$context</tt></span>
+     ] )</div>
+
+    <p class="para rdfs-comment">
+     Удаляет файл <i><tt class="parameter">filename</tt></i>. Функция похожа на функцию
+     unlink() Unix C.
+     Возвращает <b><tt>TRUE</tt></b> в случае успешного завершения или <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <span class="simpara">
+      Начиная с версии PHP 5.0.0, функция <span class="function"><b>unlink()</b></span> также
+      может быть использована с <em class="emphasis">некоторыми</em> обвёртками
+      URL. Обратитесь к <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>
+      для получения списка обвёрток, которые поддерживают <span class="function"><b>unlink()</b></span>.
+     </span>
+    </p></blockquote>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <span class="simpara">
+      Аргумент <i><tt class="parameter">context</tt></i> был добавлен начиная с версии PHP 5.0.0.
+     </span>
+    </p></blockquote>
+    <p class="para">
+     См. также описание функции <span class="function"><a href="function.rmdir.html" class="function">rmdir()</a></span> для удаления директорий.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.umask.html">umask</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.inotify.html">Inotify</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

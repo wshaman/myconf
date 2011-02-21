@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получить тип файла</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.filesize.html">filesize</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.flock.html">flock</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.filetype" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">filetype</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">filetype</span> &mdash; <span class="dc-title">Получить тип файла</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">string</span> <span class="methodname"><b>filetype</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Возвращает тип файла. Возможными значениями являются fifo, char,
+     dir, block, link, file и unknown.
+    </p>
+    <p class="para">
+     Возвращает <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+     <span class="function"><b>filetype()</b></span> также вызовет сообщение
+     <b><tt>E_NOTICE</tt></b> при неудачной попытке получения
+     информации о файле или если тип файла неизвестен.
+    </p>
+    
+    <blockquote><p><b class="note">Замечание</b>: <span class="simpara">Результаты этой функции
+кэшируются. Более подробную информацию смотрите в разделе
+<span class="function"><a href="function.clearstatcache.html" class="function">clearstatcache()</a></span>.</span></p></blockquote>
+    
+    <div class="tip"><b class="tip">Подсказка</b><p class="simpara">Начиная с
+PHP 5.0.0, эта функция также может быть
+использована с <em class="emphasis">некоторыми</em> обертками url.
+Список оберток, поддерживаемых семейством функций
+<span class="function"><a href="function.stat.html" class="function">stat()</a></span>, смотрите в <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>.</p></div>
+
+    <p class="para">
+     <div class="example">
+      <p><b>Пример #1 Пример использования функции <span class="function"><b>filetype()</b></span></b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">filetype</span><span style="color: #007700">(</span><span style="color: #DD0000">'/etc/passwd'</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;file<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">filetype</span><span style="color: #007700">(</span><span style="color: #DD0000">'/etc/'</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;dir<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <p class="simpara">
+     См. также описание функций <span class="function"><a href="function.is-dir.html" class="function">is_dir()</a></span>,
+     <span class="function"><a href="function.is-file.html" class="function">is_file()</a></span>, <span class="function"><a href="function.is-link.html" class="function">is_link()</a></span>,
+     <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span>, <span class="function"><a href="function.stat.html" class="function">stat()</a></span> и
+     <span class="function"><a href="function.mime-content-type.html" class="function">mime_content_type()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.filesize.html">filesize</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.flock.html">flock</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

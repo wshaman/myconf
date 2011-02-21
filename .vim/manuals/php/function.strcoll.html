@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Сравнение строк с учетом текущей локали</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strcmp.html">strcmp</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strcspn.html">strcspn</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.strcoll" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">strcoll</h1>
+    <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5)</p><p class="refpurpose"><span class="refname">strcoll</span> &mdash; <span class="dc-title">Сравнение строк с учетом текущей локали</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">int</span> <span class="methodname"><b>strcoll</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str1</tt></span>
+      , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str2</tt></span>
+      )</div>
+
+    <p class="simpara">
+     Возвращает положительное число если <i><tt class="parameter">str1</tt></i> меньше, чем
+     <i><tt class="parameter">str2</tt></i>; отрицательное число если <i><tt class="parameter">str1</tt></i>
+     больше, чем <i><tt class="parameter">str2</tt></i>, и 0 если строки равны.
+     <span class="function"><b>strcoll()</b></span> при сравнении использует установки 
+     текущей локали.  Если установлена локаль C или POSIX, эта функция 
+     аналогична <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span>.
+    </p>
+    <p class="simpara">
+     Обратите внимание, что эта функция учитывает регистр символов, и, в 
+     отличие от <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span> не безопасна для обработки 
+     данных в двоичной форме.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      <span class="function"><b>strcoll()</b></span> была добавлена в PHP 4.0.5, но под
+      Windows не была включена до версии 4.2.3.
+     </p>
+    </p></blockquote>
+    <p class="simpara">
+     См. также описание функций <span class="function"><a href="function.ereg.html" class="function">ereg()</a></span>, 
+     <span class="function"><a href="function.strcmp.html" class="function">strcmp()</a></span>, <span class="function"><a href="function.strcasecmp.html" class="function">strcasecmp()</a></span>, 
+     <span class="function"><a href="function.substr.html" class="function">substr()</a></span>, <span class="function"><a href="function.stristr.html" class="function">stristr()</a></span>, 
+     <span class="function"><a href="function.strncasecmp.html" class="function">strncasecmp()</a></span>, <span class="function"><a href="function.strncmp.html" class="function">strncmp()</a></span>, 
+     <span class="function"><a href="function.strstr.html" class="function">strstr()</a></span> и <span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strcmp.html">strcmp</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strcspn.html">strcspn</a></div>
+ <div class="up"><a href="ref.strings.html">Функции обработки строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

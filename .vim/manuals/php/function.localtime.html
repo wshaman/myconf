@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает системное время</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.idate.html">idate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.microtime.html">microtime</a></div>
+ <div class="up"><a href="ref.datetime.html">Date/Time Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.localtime" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">localtime</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">localtime</span> &mdash; <span class="dc-title">Возвращает системное время</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">array</span> <span class="methodname"><b>localtime</b></span>
+       ([ <span class="methodparam"><span class="type">int</span> <tt class="parameter">$
+        timestamp
+       </tt></span>
+      [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$
+        is_associative
+       </tt></span>
+     ]] )</div>
+
+    <p class="para rdfs-comment">
+     Функция <span class="function"><b>localtime()</b></span> возвращает массив, аналогичный
+     структуре, возвращаемой соответствующей функцией C.  
+     Первым аргументом функции <span class="function"><b>localtime()</b></span> является 
+     метка времени, если этот аргумент не передан, используется текущее время, 
+     полученное вызовом функции <span class="function"><a href="function.time.html" class="function">time()</a></span>.
+     Если аргумент <i><tt class="parameter">is_associative</tt></i> не передан или 
+     или равен 0, возврачается массив с числовыми индексами. Если этот 
+     аргумент равен 1, функция <span class="function"><b>localtime()</b></span> возврашает 
+     ассоциативный массив, содержащий компоненты структуры, возвращаемой 
+     функцией  C localtime. Список индексов :
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_sec&quot; - секунды
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_min&quot; - минуты
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_hour&quot; - часы
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_mday&quot; - день месяца
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_mon&quot; - месяц года, 0 соответствует январю
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_year&quot; - Количество лет, прошедших с 1900 г.
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_wday&quot; - день недели
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_yday&quot; - порядковый номер дня в году
+       </span>
+      </li>
+      <li class="listitem">
+       <span class="simpara">
+        &quot;tm_isdst&quot; - признак летнего времени
+       </span>
+      </li>
+     </ul>
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.idate.html">idate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.microtime.html">microtime</a></div>
+ <div class="up"><a href="ref.datetime.html">Date/Time Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

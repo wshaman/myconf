@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Урезает файл до указанной длинны</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ftell.html">ftell</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.fwrite.html">fwrite</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.ftruncate" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">ftruncate</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ftruncate</span> &mdash; <span class="dc-title">Урезает файл до указанной длинны</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>ftruncate</b></span>
+       ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$handle</tt></span>
+      , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$size</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Принимает файловый указатель <i><tt class="parameter">handle</tt></i> и урезает
+     соответствующий файл до размера <i><tt class="parameter">size</tt></i>.
+     Возвращает <b><tt>TRUE</tt></b> в случае успешного завершения или <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      В версиях PHP ниже 4.3.3, <span class="function"><b>ftruncate()</b></span> возвращает
+      значение <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> 1 в случае успеха, вместо
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> <b><tt>TRUE</tt></b>.
+     </p>
+    </p></blockquote>
+    <p class="para">
+     См. также описание функций <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span> и
+     <span class="function"><a href="function.fseek.html" class="function">fseek()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ftell.html">ftell</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.fwrite.html">fwrite</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Интерактивная консоль</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="features.commandline.io-streams.html">Потоки ввода/вывода</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.gc.html">Garbage Collection</a></div>
+ <div class="up"><a href="features.commandline.html">Использование PHP в командной строке</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="features.commandline.interactive" class="section">
+  <h2 class="title">Интерактивная консоль</h2>
+
+  <p class="para">
+   Начиная с вверсии PHP 5.1.0, модуль <acronym title="Command Line Interpreter/Interface">CLI</acronym> <acronym title="Server Application Programming Interface">SAPI</acronym> предоставляет
+   интерактивную консоль, доступную с помощью опции
+   <strong class="option unknown">-a</strong>
+, если PHP был скомплирован с опцией
+   <strong class="option configure">--with-readline</strong>
+.
+  </p>
+
+  <p class="para">
+   Интерактивная консоль позволяет непосредственно набирать и
+   одновременно выполнять PHP-код.
+  </p>
+
+  <div class="example">
+   <p><b>Пример #1 Запуск кода в интерактивной консоли</b></p>
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">$ php -a
+Interactive shell
+
+php &gt; echo 5+8;
+13
+php &gt; function addTwo($n)
+php &gt; {
+php { return $n + 2;
+php { }
+php &gt; var_dump(addtwo(2));
+int(4)
+php &gt;</pre>
+</div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   Интерактивная консоль также автодополняет (с помощью клавиши Tab)
+   имена функций, констант, классов, переменных, вызовы
+   статических методов и константы классов.
+  </p>
+
+  <div class="example">
+   <p><b>Пример #2 Автодополнение по Tab</b></p>
+   <div class="example-contents"><p>
+    Двойное нажатие клавиши Tab при наличии нескольких вариантов
+    дополнения покажет список этих вариантов:
+   </p></div>
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">php &gt; strp[TAB][TAB]
+strpbrk   strpos    strptime
+php &gt; strp</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p>
+    Если доступно только одно дополнение, одиночное нажатие
+    Tab дополнит оставшийся текст на той же самой строке:
+   </p></div>
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">php &gt; strpt[TAB]ime(</pre>
+</div>
+   </div>
+
+   <div class="example-contents"><p>
+    Дополнение также возможно для элементов, которые были объявлены
+    в течении данной интерактивной сессии:
+   </p></div>
+   <div class="example-contents">
+<div class="shellcode"><pre class="shellcode">php &gt; $fooThisIsAReallyLongVariableName = 42;
+php &gt; $foo[TAB]ThisIsAReallyLongVariableName</pre>
+</div>
+   </div>
+
+  </div>
+
+  <p class="para">
+   Интерактивная консоль хранит историю ваших команд, к ней
+   можно получить доступ с помощью стрелок вверх и вниз.
+   История хранится в файле <var class="filename">~/.php_history</var>.
+  </p>
+
+  
+
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    Файлы, подключенные с помощью опций <a href="ini.core.html#ini.auto-prepend-file" class="link">auto_prepend_file</a> и <a href="ini.core.html#ini.auto-append-file" class="link">auto_append_file</a>
+    обрабатываются в этом режиме с некоторыми ограничениями,
+    например, функции должны быть объявлены до их использования.
+   </p>
+  </p></blockquote>
+
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    <a href="language.oop5.autoload.html" class="link">Автозагрузка</a>
+    недоступна при использовании интерактивного режима PHP <acronym title="Command Line Interpreter/Interface">CLI</acronym>.
+   </p>
+  </p></blockquote>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="features.commandline.io-streams.html">Потоки ввода/вывода</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.gc.html">Garbage Collection</a></div>
+ <div class="up"><a href="features.commandline.html">Использование PHP в командной строке</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

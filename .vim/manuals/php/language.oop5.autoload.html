@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Автоматическая загрузка объектов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.constants.html">Константы классов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.oop5.decon.html">Конструкторы и деструкторы</a></div>
+ <div class="up"><a href="language.oop5.html">Классы и объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.oop5.autoload" class="sect1">
+  <h2 class="title">Автоматическая загрузка объектов</h2>
+  <p class="para">
+   Большинство разработчиков объектно-ориентированных приложений
+   создают для каждого определения класса отдельный файл с 
+   кодом PHP. Одной из самых больших неприятностей в этом случае
+   является необходимость писать в начале каждого скрипта 
+   длинный список подгружаемых файлов.
+  </p>
+  <p class="para">
+   Если используется PHP 5, то делать это не обязательно. 
+   Вы можете определить функцию __autoload, которая автоматически
+   вызывается в том случае, когда вы пытаетесь использовать класс/интерфейс,
+   который не был определен ранее. Вызов этой функции - это
+   последний шанс для интерпретатора загрузить класс прежде, чем
+   он закончит выполнение скрипта с ошибкой.
+  </p>
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    Исключения, вызванные в функции __autoload, не могут быть
+    перехвачены в блоке <a href="language.exceptions.html" class="link">catch</a>
+    и завершатся с неисправимой ошибкой.
+   </p>
+  </p></blockquote>
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    Автоматическая загрузка не доступна в случае использования PHP
+    в командной строке в <a href="features.commandline.html" class="link">интерактивном режиме</a>.
+   </p>
+  </p></blockquote>
+  <blockquote><p><b class="note">Замечание</b>: 
+   <p class="para">
+    Если имя класса используется, например, для вызова через <span class="function"><a href="function.call-user-func.html" class="function">call_user_func()</a></span>,
+    то оно может содержать некоторые опасные символы, такие как <i>../</i>.
+    Поэтому, рекомендуется не использовать данные от пользователей в таких функциях или же,
+    как минимум, проверять значения в <span class="function"><b>__autoload()</b></span>.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   <div class="example">
+    <p><b>Пример #1 Пример автоматической загрузки</b></p>
+    <div class="example-contents"><p>
+     В этом примере функция пытается загрузить классы <i>MyClass1</i>
+     и <i>MyClass2</i> из файлов <var class="filename">MyClass1.php</var>
+     и <var class="filename">MyClass2.php</var> соответственно.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">__autoload</span><span style="color: #007700">(</span><span style="color: #0000BB">$class_name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;require_once&nbsp;</span><span style="color: #0000BB">$class_name&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'.php'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$obj&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MyClass1</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$obj2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MyClass2</span><span style="color: #007700">();&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example">
+    <div class="example-contents"><p>
+     В этом примере представлена попытка загрузки интерфейса <i>ITest</i>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">__autoload</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">Foo&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">ITest&nbsp;</span><span style="color: #007700">{<br />}<br /><br /></span><span style="color: #FF8000">/*<br />string(5)&nbsp;"ITest"<br /><br />Fatal&nbsp;error:&nbsp;Interface&nbsp;'ITest'&nbsp;not&nbsp;found&nbsp;in&nbsp;...<br />*/<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+
+  </p>
+
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.constants.html">Константы классов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.oop5.decon.html">Конструкторы и деструкторы</a></div>
+ <div class="up"><a href="language.oop5.html">Классы и объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

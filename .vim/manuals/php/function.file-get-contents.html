@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получить содержимое файла в виде одной строки</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.file-exists.html">file_exists</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file-put-contents.html">file_put_contents</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.file-get-contents" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">file_get_contents</h1> 
+    <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">file_get_contents</span> &mdash; <span class="dc-title">Получить содержимое файла в виде одной строки</span></p>
+
+   </div>
+   <div class="refsect1 description">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">string</span> <span class="methodname"><b>file_get_contents</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
+      [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$use_include_path</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$context</tt></span>
+      [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$offset</tt></span>
+      [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$maxlen</tt></span>
+     ]]]] )</div>
+
+    <p class="para rdfs-comment"> 
+     Данная функция идентична функции <span class="function"><a href="function.file.html" class="function">file()</a></span> с той только
+     разницей, что содержимое файла возвращается в строке, начиная с
+     указанного смещения <i><tt class="parameter">offset</tt></i> и до
+     <i><tt class="parameter">maxlen</tt></i> байтов.
+     В случае неудачи, <span class="function"><b>file_get_contents()</b></span> вернёт <b><tt>FALSE</tt></b>.
+    </p>
+    <p class="para">
+     Использование функции <span class="function"><b>file_get_contents()</b></span> наиболее предпочтительно
+     в случае необходимости получить содержимое файла целиком, поскольку для улучшения
+     производительности функция использует алгоритм &#039;memory mapping&#039; (если поддерживается
+     операционной системой).
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      Если вы открываете URI содержащий спецсимволы, такие как пробел, вам нужно
+      закодировать URI при помощи <span class="function"><a href="function.urlencode.html" class="function">urlencode()</a></span>.
+     </p>
+    </p></blockquote>
+   </div>
+
+   
+   <div class="refsect1 changelog">
+    <h3 class="title">Список изменений</h3>
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead valign="middle">
+        <tr valign="middle">
+         <th>Версия</th>
+         <th>Описание</th>
+        </tr>
+
+       </thead>
+
+       <tbody valign="middle" class="tbody">
+        <tr valign="middle">
+         <td align="left">5.0.0</td>
+         <td align="left">
+          Добавлена поддержка контекста.
+         </td>
+        </tr>
+
+        <tr valign="middle">
+         <td align="left">5.1.0</td>
+         <td align="left">
+          Добавлены аргументы <i><tt class="parameter">offset</tt></i> и
+          <i><tt class="parameter">maxlen</tt></i>.
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
+
+   
+   <div class="refsect1 notes">
+    <h3 class="title">Примечания</h3>
+    <blockquote><p><b class="note">Замечание</b>: <span class="simpara">Эта функция безопасна
+для обработки данных в двоичной форме.</span></p></blockquote>
+    <div class="tip"><b class="tip">Подсказка</b><p class="simpara">Для этой функции вы можете использовать URL
+в качестве имени файла, если была включена опция <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a>. Смотрите более
+подробную информацию об определении имени файла в описании функции
+<span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>. Смотрите также список поддерживаемых оберток URL, их возможности, замечания по использованию и список
+предопределенных констант в <a href="wrappers.html" class="xref">Supported Protocols and Wrappers</a>.</p></div>
+    <div class="warning"><b class="warning">Внимание</b><p class="para">При использовании SSL, 
+Microsoft IIS нарушает протокол, закрывая соединение без отправки
+индикатора <i>close_notify</i>.  PHP сообщит об этом как о &quot;SSL: Fatal Protocol Error&quot;
+в тот момент, когда вы достигнете конца данных. Чтобы обойти это, вы должны 
+установить <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> на 
+уровень, исключающий E_WARNING.
+PHP версий 4.3.7 и старше умеет определять, что на стороне сервера находится 
+проблемный IIS при открытии потока с помощью обертки <i>https://</i> и не выводит предупреждение.
+Если вы используете <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span> для создания <i>ssl://</i> сокета,
+вы сами отвечаете за определение и подавление этого предупреждения.</p></div>
+   </div>
+   
+   
+   <div class="refsect1 seealso">
+    <h3 class="title">Смотрите также</h3>
+    <p class="para">
+     <ul class="simplelist">
+      <li class="member"><span class="function"><a href="function.file.html" class="function" rel="rdfs-seeAlso">file()</a> - Читает содержимое файла и помещает его в массив</span></li>
+      <li class="member"><span class="function"><a href="function.fgets.html" class="function" rel="rdfs-seeAlso">fgets()</a> - Читает строку из файла</span></li>
+      <li class="member"><span class="function"><a href="function.fread.html" class="function" rel="rdfs-seeAlso">fread()</a> - Бинарно-безопасное чтение файла</span></li>
+      <li class="member"><span class="function"><a href="function.readfile.html" class="function" rel="rdfs-seeAlso">readfile()</a> - Выводит файл</span></li>
+      <li class="member"><span class="function"><a href="function.file-put-contents.html" class="function" rel="rdfs-seeAlso">file_put_contents()</a> - Записать строку в файл</span></li>
+     </ul>
+    </p>
+    </div>
+
+   </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.file-exists.html">file_exists</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file-put-contents.html">file_put_contents</a></div>
+ <div class="up"><a href="ref.filesystem.html">Функции для работы с файловой системой</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

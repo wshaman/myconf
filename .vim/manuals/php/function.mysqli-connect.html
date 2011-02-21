@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает новое соединение с сервером MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysqli-client-encoding.html">mysqli_client_encoding</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysqli-disable-reads-from-master.html">mysqli_disable_reads_from_master</a></div>
+ <div class="up"><a href="ref.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysqli-connect" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">mysqli_connect</h1>
+    <h1 class="refname">mysqli()</h1>
+    <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_connect</span> -- <span class="refname">mysqli()</span> &mdash; <span class="dc-title">Открывает новое соединение с сервером MySQL</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+    <p class="para">Процедурный стиль</p>
+    <div class="methodsynopsis dc-description">
+     <span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <span class="methodname"><b>mysqli_connect</b></span>
+      ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$host</tt></span>
+     [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$username</tt></span>
+     [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$passwd</tt></span>
+     [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$dbname</tt></span>
+     [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$port</tt></span>
+     [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$socket</tt></span>
+    ]]]]]] )</div>
+
+    <p class="para rdfs-comment">Объектно-ориентированный стиль (конструктор):</p>
+    <div class="classsynopsis">
+    <div class="ooclass"></div>
+     <div class="constructorsynopsis dc-description">
+       <span class="methodname"><a href="mysqli.connect.html" class="methodname">mysqli::__construct</a></span>
+       ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$host</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$username</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$passwd</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$dbname</tt></span>
+      [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$port</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$socket</tt></span>
+     ]]]]]] )</div>
+ 
+    </div>
+    <p class="para">
+     Функция <span class="function"><b>mysqli_connect()</b></span> пытается открыть соединение с
+     сервером MySQL, работающему на сервере, указанном параметром 
+     <i><tt class="parameter">host</tt></i>, который может быть именем хоста или IP-адресом. 
+     Передача значения <b><tt>NULL</tt></b> или строки &quot;localhost&quot; в качестве этого
+     параметра, предполагает подключение к локальному хосту. 
+     При возможности будут использованы каналы (pipes) вместо протокола
+     TCP/IP. При успешном подключение, функция <span class="function"><b>mysqli_connect()</b></span> 
+     вернет объект, представляющий соединение с базой данных, или <b><tt>FALSE</tt></b> при неудаче.
+    </p>
+    <p class="para">
+     Параметры <i><tt class="parameter">username</tt></i> и
+     <i><tt class="parameter">password</tt></i> определяют  имя пользователя и пароль с 
+     которыми будет произведено подключение к серверу MySQL. Если пароль не 
+     определен (передан параметр <b><tt>NULL</tt></b>), сервер MySQL предпримет попытку 
+     аутентифицировать пользователя, как такового, запись о котором не имеет 
+     только пароля. Это позволяет использовать одно имя пользователя 
+     с различными правами доступа (в зависимости от того, используется пароль или нет).
+    </p>
+    <p class="para">
+     Если указан параметр <i><tt class="parameter">dbname</tt></i> будет выбрана база
+     данных по-умолчению, которая будет использоваться для выполнения запросов. 
+    </p>
+    <p class="para">
+     Параметры <i><tt class="parameter">port</tt></i> и <i><tt class="parameter">socket</tt></i> используются совместно с
+     параметром <i><tt class="parameter">host</tt></i> для дополнительного контроля над подключением 
+     к серверу баз данных. Параметр <i><tt class="parameter">port</tt></i> определяет номер порта для попытки
+     подключения к серверу MySQL, который его прослушивает, в то время как параметр <i><tt class="parameter">socket</tt></i> 
+     определяет сокет или именованый канал, которые необходимо использовать для соединения. 
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      Установка параметра <i><tt class="parameter">socket</tt></i> точно не определяет тип соединения 
+      для использования при подключении к серверу MySQL. Каким образом установлено соединение с базой данных 
+      MySQL определяется параметром <i><tt class="parameter">host</tt></i>.
+     </p>
+    </p></blockquote>
+   </div>
+
+   <div class="refsect1 unknown">
+    <h3 class="title">Возвращаемые значения</h3>
+    <p class="para">
+     Возвращает объект, представляющий соединение с сервером MySQL или 
+     <b><tt>FALSE</tt></b>, если попытка подключения потерпит неудачу.
+    </p>
+   </div>
+
+   <div class="refsect1 unknown">
+    <h3 class="title">Примеры</h3>
+    <div class="example">
+     <p><b>Пример #1 Объектно-ориентированный стиль</b></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Проверка&nbsp;подключения&nbsp;*/&nbsp;<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ошибка&nbsp;подключения:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Информация&nbsp;о&nbsp;хосте:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Закрытие&nbsp;соединения&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    </div>
+    <div class="example">
+     <p><b>Пример #2 Процедурный стиль</b></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Проверка&nbsp;подключения&nbsp;*/&nbsp;<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ошибка&nbsp;подключения:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Информация&nbsp;о&nbsp;хосте:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_get_host_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Закрытие&nbsp;соединения&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+    <p class="para">Результат выполнения данного примера:</p>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Информация о хосте: Localhost via UNIX socket
+</pre></div>
+    </div>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysqli-client-encoding.html">mysqli_client_encoding</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysqli-disable-reads-from-master.html">mysqli_disable_reads_from_master</a></div>
+ <div class="up"><a href="ref.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

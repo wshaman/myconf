@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает список таблиц базы данных MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-list-processes.html">mysql_list_processes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-num-fields.html">mysql_num_fields</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-list-tables" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">mysql_list_tables</h1>
+    <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_list_tables</span> &mdash; <span class="dc-title">Возвращает список таблиц базы данных MySQL</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">resource</span> <span class="methodname"><b>mysql_list_tables</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$database</tt></span>
+      [, <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$link_identifier</tt></span>
+     ] )</div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><b>mysql_list_tables()</b></span>, принимая параметром имя базы
+     данных, возвращает указатель на результат (аналогично
+     <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span>), содержащий список её таблиц.
+     Используйте функцию <span class="function"><a href="function.mysql-tablename.html" class="function">mysql_tablename()</a></span> для обработки
+     полученного указателя, либо любую другую функцию для обработки
+     результатов, такую как <span class="function"><a href="function.mysql-fetch-array.html" class="function">mysql_fetch_array()</a></span>.
+    </p>
+    <p class="para">
+     Параметр <i><tt class="parameter">database</tt></i> -- имя базы данных, список
+     таблиц которой будет возвращён. В случае ошибки, функция возвращает
+     <b><tt>FALSE</tt></b>.
+    </p>
+    <p class="para">
+     Для совместимости, как алиас, доступна устаревшая функция 
+     <span class="function"><b>mysql_listtables()</b></span>. Однако, использовать её крайне не
+     рекомендуется.
+    </p>
+    <p class="para">
+     <blockquote><p><b class="note">Замечание</b>: 
+      <span class="simpara">
+       Функция устарела и не должна быть использована. Используйте SQL-запрос
+       SHOW TABLES FROM DATABASE вместо неё.
+      </span>
+     </p></blockquote>
+    </p>
+    <p class="para">
+     <div class="example">
+      <p><b>Пример #1 Пример использования <span class="function"><b>mysql_list_tables()</b></span></b></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$dbname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql_dbname'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect&nbsp;to&nbsp;mysql'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_list_tables</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbname</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"DB&nbsp;Error,&nbsp;could&nbsp;not&nbsp;list&nbsp;tables\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">'MySQL&nbsp;Error:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_fetch_row</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Table:&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+    <p class="para">
+     См. также 
+     <span class="function"><a href="function.mysql-list-dbs.html" class="function">mysql_list_dbs()</a></span> и
+     <span class="function"><a href="function.mysql-tablename.html" class="function">mysql_tablename()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-list-processes.html">mysql_list_processes</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-num-fields.html">mysql_num_fields</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Добавляет данные из объекта LOB в конец другого объекта</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-internal-debug.html">oci_internal_debug</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-lob-close.html">lob-&gt;close</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.oci-lob-append" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">lob->append</h1>
+    <p class="verinfo">(No version information available, might only be in SVN)</p><p class="refpurpose"><span class="refname">lob-&gt;append</span> &mdash; <span class="dc-title">Добавляет данные из объекта LOB в конец другого объекта</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">bool</span> <span class="methodname"><b>lob-&gt;append</b></span>
+       ( <span class="methodparam"><span class="type">object</span> <tt class="parameter">$lob_from</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     Добавляет в конец объекта LOB данные из другого объекта LOB, указанного в
+     параметре <i><tt class="parameter">lob_from</tt></i>. 
+    </p>
+    <p class="para">
+     Запись в LOB с помощью <span class="function"><b>lob->append()</b></span> вызовет ошибку,
+     если у объекта включен режим буферизации. Поэтому вы 
+     <em class="emphasis">должны</em> выключить буферизацию с помощью
+     <span class="function"><b>ocisetbufferinglob()</b></span>. Если вы записывали данные в LOB
+     до этого, то перед выключением буферизации вам необходимо использовать
+     <span class="function"><b>oci_lob_flush()</b></span> для того, чтобы буфер был очищен и
+     буферизированные данные были записаны.
+    </p>
+    <p class="para">
+     Возвращает <b><tt>TRUE</tt></b> в случае успешного завершения или <b><tt>FALSE</tt></b> в случае возникновения ошибки.
+    </p>
+    <p class="para">
+     См. также <span class="function"><b>oci_lob_flush()</b></span>, 
+     <span class="function"><b>ocisetbufferinglob()</b></span> и
+     <span class="function"><b>ocigetbufferinglob()</b></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-internal-debug.html">oci_internal_debug</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-lob-close.html">lob-&gt;close</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

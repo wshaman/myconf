@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает значение поля из результата запроса</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-pconnect.html">oci_pconnect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-rollback.html">oci_rollback</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.oci-result" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">oci_result</h1>
+    <p class="verinfo">(PHP 5, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_result</span> &mdash; <span class="dc-title">Возвращает значение поля из результата запроса</span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><b>oci_result</b></span>
+       ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$statement</tt></span>
+      , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$field</tt></span>
+      )</div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><b>oci_result()</b></span> возвращает данные из поля  
+     <i><tt class="parameter">field</tt></i> текущей строки результата (см. 
+     <span class="function"><a href="function.oci-fetch.html" class="function">oci_fetch()</a></span>). <span class="function"><b>oci_result()</b></span>
+     возвращает данные в виде строк, кроме абстрактных типов (ROWID,
+     LOB и FILE). В случае ошибки <span class="function"><b>oci_result()</b></span> возвращает
+     <b><tt>FALSE</tt></b>.
+    </p>
+    <p class="para">
+     В качестве параметра <i><tt class="parameter">field</tt></i> вы можете использовать 
+     номер поля (начиная с 1) или его имя в верхнем регистре.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      В версиях PHP ниже 5.0.0 эта функция называлась <span class="function"><b>ociresult()</b></span>. 
+      В PHP 5.0.0 и выше <span class="function"><b>ociresult()</b></span> является
+      алиасом <span class="function"><b>oci_result()</b></span>, поэтому вы можете
+      продолжать использовать это имя, однако это не рекомендуется.
+     </p>
+    </p></blockquote>
+    <p class="para">
+     См. также <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span>, 
+     <span class="function"><a href="function.oci-fetch-assoc.html" class="function">oci_fetch_assoc()</a></span>,
+     <span class="function"><a href="function.oci-fetch-object.html" class="function">oci_fetch_object()</a></span>,
+     <span class="function"><a href="function.oci-fetch-row.html" class="function">oci_fetch_row()</a></span> и
+     <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span>. 
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-pconnect.html">oci_pconnect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-rollback.html">oci_rollback</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

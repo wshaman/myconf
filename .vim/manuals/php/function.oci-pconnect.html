@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Устанавливает постоянное соединение с сервером Oracle</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-password-change.html">oci_password_change</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-result.html">oci_result</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.oci-pconnect" class="refentry">
+   <div class="refnamediv">
+    <h1 class="refname">oci_pconnect</h1>
+    <p class="verinfo">(PHP 5, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_pconnect</span> &mdash; <span class="dc-title">
+     Устанавливает постоянное соединение с сервером Oracle
+    </span></p>
+
+   </div>
+   <div class="refsect1 unknown">
+    <h3 class="title">Описание</h3>
+     <div class="methodsynopsis dc-description">
+      <span class="type">resource</span> <span class="methodname"><b>oci_pconnect</b></span>
+       ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$username</tt></span>
+      , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$password</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$db</tt></span>
+      [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$charset</tt></span>
+     ]] )</div>
+
+    <p class="para rdfs-comment">
+     <span class="function"><b>oci_pconnect()</b></span> создает постоянное соединение с
+     сервером Oracle. Необязательный третий параметр <i><tt class="parameter">db</tt></i>
+     может содержать имя локального экземпляра Oracle или имя сервера,
+     указанного в файле <var class="filename">tnsnames.ora</var>, с которым вы хотите
+     соединиться. Если третий параметр не указан, PHP будет использовать
+     переменные <i>ORACLE_SID</i> и <i>TWO_TASK</i>
+     для определения имени локального экземпляра Oracle и местонахождения
+     файла <var class="filename">tnsnames.ora</var> соответственно.
+    </p>
+    <p class="para">
+     Если вы используете сервер Oracle версии 9.2 и выше, то вы можете указать
+     кодировку, которая будет использована в новом соединении. Кодировка
+     указывается в параметре <i><tt class="parameter">charset</tt></i>. Если же вы
+     используете версии сервера Oracle младше 9.2, то этот параметр будет
+     проигнорирован, а вместо него будет использована переменная окружения
+     NLS_LANG.
+    </p>
+    <p class="para">
+     <span class="function"><b>oci_pconnect()</b></span> возвращает идентификатор соединения или
+     <b><tt>FALSE</tt></b> в случае ошибки.
+    </p>
+    <blockquote><p><b class="note">Замечание</b>: 
+     <p class="para">
+      В версиях PHP ниже 5.0.0 эта функция называлась <span class="function"><b>ociplogon()</b></span>. 
+      В PHP 5.0.0 и выше <span class="function"><b>ociplogon()</b></span> является
+      алиасом <span class="function"><b>oci_pconnect()</b></span>, поэтому вы можете
+      продолжать использовать это имя, однако это не рекомендуется.
+     </p>
+    </p></blockquote>
+    <p class="simpara">
+     См. также <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> и
+     <span class="function"><a href="function.oci-new-connect.html" class="function">oci_new_connect()</a></span>.
+    </p>
+   </div>
+
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.oci-password-change.html">oci_password_change</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.oci-result.html">oci_result</a></div>
+ <div class="up"><a href="ref.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
